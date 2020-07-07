@@ -7,10 +7,14 @@ import numpy as np
 
 def random_walk(n, dimensions):
 
+    # 2-d components
     x_list, y_list = [], []
+    x, y = 0, 0
+
+    # 3-d components
     position = [0, 0, 0]
     coord = []
-    x, y = 0, 0
+
     if dimensions == 2:
         for i in range(n):
             (dx, dy) = random.choice([(0, 1), (0, -1), (1, 0), (-1, 0)])
@@ -41,6 +45,7 @@ def graph_2d(x, y):
     line, = ax.plot(x, y, color = "darkorchid")
 
     ani = animation.FuncAnimation(fig, update_2d, len(x), fargs=[x, y, line], interval=1, blit=True)
+    ani.save('2d_rw.gif', writer='imagemagick', fps=60)
 
     plt.show()
 
