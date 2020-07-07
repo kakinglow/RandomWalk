@@ -19,7 +19,7 @@ def random_walk(n, dimensions):
         return x_list, y_list
 
 
-x, y = random_walk(10000, 2)
+x, y = random_walk(500, 2)
 
 fig, ax = plt.subplots()
 line, = ax.plot(x, y, color = "darkorchid")
@@ -28,7 +28,7 @@ def update(num, x, y, line):
     line.set_data(x[:num], y[:num])
     return line,
 
-ani = animation.FuncAnimation(fig, update, len(x), fargs=[x, y, line], interval=1, blit=True, repeat=False)
+ani = animation.FuncAnimation(fig, update, len(x), fargs=[x, y, line], interval=1, blit=True)
 
 plt.show()
 
